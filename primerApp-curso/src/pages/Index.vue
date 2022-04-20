@@ -1,14 +1,23 @@
 <template>
   <q-page padding>
-    <input
+    <!-- <input
       v-model="message"
       @keyup.esc="clearMessage"
       @keyup.enter="alertMessage"
       @mouseenter="alertMessage"
       @mouseleave="clearMessage"
+    /> -->
+    <input
+      v-model="message"
+      @keyup.esc="clearMessage"
+      @keyup.enter="alertMessage"
     />
+
     <button @click="message = ''">Clear</button>
-    <h5 class="my-border" v-show="message.length" >{{ message }}</h5>
+
+    <!-- <h5 v-show="message.length" class="my-border">{{ message }}</h5> -->
+    <h5 v-if="message.length" class="my-border">{{ message }}</h5>
+    <h6 v-else>No messages to show </h6>
   </q-page>
 </template>
 
@@ -40,7 +49,7 @@ export default defineComponent({
 });
 </script>
 <style>
-  .my-border{
-    border: 1px solid brown;
-  }
+.my-border {
+  border: 1px solid brown;
+}
 </style>
