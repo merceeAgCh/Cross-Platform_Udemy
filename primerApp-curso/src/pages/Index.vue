@@ -8,7 +8,7 @@
       @mouseleave="clearMessage"
     />
     <button @click="message = ''">Clear</button>
-    <h5>{{ message }}</h5>
+    <h5 class="my-border" v-show="message.length" >{{ message }}</h5>
   </q-page>
 </template>
 
@@ -39,4 +39,8 @@ export default defineComponent({
   },
 });
 </script>
-<style></style>
+<style>
+  .my-border{
+    border: 1px solid brown;
+  }
+</style>
