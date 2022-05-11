@@ -26,6 +26,8 @@
     <hr />
 
     <p>Uppercase message: {{ messageUppercase }}</p>
+
+    <p>Lowercase message: {{ message | messageLowercase }}</p>
   </q-page>
 </template>
 
@@ -35,14 +37,14 @@ import { defineComponent } from "vue";
 export default defineComponent({
   data() {
     return {
-      message: "Un mensaje para Vue JS",
+      message: "Un mensaje para Vue JS ",
       count: 0,
     };
   },
   computed: {
     messageUppercase() {
-      console.log("messageUppercase was fired");
-      return this.message.toUpperCase();
+      console.log("messageUppercase was fired ");
+      return this.message.toUpperCase() + this.count;
     },
   },
   methods: {
@@ -61,6 +63,11 @@ export default defineComponent({
       alert(this.message);
     },
   },
+  filters:{
+    messageLowercase(value){
+      return value.toLowerCase();
+    }
+  }
 });
 </script>
 <style>
